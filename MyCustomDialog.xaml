@@ -1,0 +1,30 @@
+﻿<ContentDialog
+    x:Class="HelloWorld.MyCustomDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HelloWorld"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Ввод радуса, высоты и плотности конуса"
+
+    PrimaryButtonText="Add"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    <StackPanel>
+
+        <TextBox Header="Радиус" x:Name="RadiusBox" x:FieldModifier="internal" PlaceholderText="Введите радиус" 
+                 HorizontalAlignment="Stretch" BorderBrush="Black" Margin="0,0,0,5"/>
+
+        <TextBox Header="Высота" x:Name="HeightBox" x:FieldModifier="internal" PlaceholderText="Введите высоту" 
+                 HorizontalAlignment="Stretch" Margin="0,0,0,5"/>
+
+        <TextBox Header="Плотность" x:Name="DensityBox" x:FieldModifier="internal" PlaceholderText="Введите плотность" 
+                 HorizontalAlignment="Stretch"/>
+        <CheckBox Content="Подсчет объема" x:Name="CapacityBox" x:FieldModifier="internal" />
+        <CheckBox Content="Подсчет массы" x:Name="WeightBox" x:FieldModifier="internal" />
+
+    </StackPanel>
+
+</ContentDialog>
