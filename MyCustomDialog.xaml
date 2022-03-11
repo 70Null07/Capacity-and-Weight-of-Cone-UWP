@@ -22,7 +22,9 @@
 
         <TextBox Header="Плотность" x:Name="DensityBox" x:FieldModifier="internal" PlaceholderText="Введите плотность" 
                  HorizontalAlignment="Stretch"/>
+        
         <CheckBox Content="Подсчет объема" x:Name="CapacityBox" x:FieldModifier="internal" />
+        
         <CheckBox Content="Подсчет массы" x:Name="WeightBox" x:FieldModifier="internal" />
 
     </StackPanel>

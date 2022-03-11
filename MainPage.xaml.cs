@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x419
 
@@ -39,33 +29,17 @@ namespace HelloWorld
         private bool capacity, weight;
         public MainPage()
         {
-            this.InitializeComponent();
-            this.button1.IsEnabled = false;
-            ApplicationView.PreferredLaunchViewSize = new Size(480, 800);
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-        }
+            InitializeComponent();
 
-        private static async Task<string> ShowAddDialogAsync()
-        {
-            TextBox inputTextBox = new TextBox { AcceptsReturn = false };
-            TextBox inputHight = new TextBox { AcceptsReturn = false };
-            ContentDialog contentDialog = new ContentDialog()
-            {
-                Title = "Введите радиус",
-                Content = inputTextBox,
-                IsSecondaryButtonEnabled = true,
-                PrimaryButtonText = "Ok",
-                SecondaryButtonText = "Cancel"
-            };
-            if (await contentDialog.ShowAsync() == ContentDialogResult.Primary)
-                return await Task.FromResult(inputTextBox.Text);
-            else
-                return default(string);
+            button1.IsEnabled = false;
+
+            ApplicationView.PreferredLaunchViewSize = new Size(500, 500);
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new MyCustomDialog();
+            MyCustomDialog dialog = new MyCustomDialog();
             await dialog.ShowAsync();
             try
             {
@@ -95,25 +69,10 @@ namespace HelloWorld
             }
             else
             {
-               if (dialog.CapacityBox.IsChecked == true && dialog.WeightBox.IsChecked == true)
-                {
-                    capacity = true;
-                    weight = true;
-                }
-               else if(dialog.WeightBox.IsChecked == true)
-                {
-                    weight = true;
-                    capacity = false;
-                }
-               else
-                {
-                    capacity = true;
-                    weight = false;
-                }
-            }
-            if (radius != default && height != default && density != default && !(capacity == false && weight == false))
-            {
-                this.button1.IsEnabled = true;
+                capacity = (bool)dialog.CapacityBox.IsChecked;
+                weight = (bool)dialog.WeightBox.IsChecked;
+
+                button1.IsEnabled = true;
             }
         }
 
@@ -121,20 +80,20 @@ namespace HelloWorld
         {
             if (capacity == true)
             {
-                var contentDialog = new ContentDialog()
+                ContentDialog contentDialog = new ContentDialog()
                 {
                     Title = "Результатат вычисления объема",
-                    Content = (3.14 * radius * radius * height)/3,
+                    Content = (3.14 * radius * radius * height) / 3,
                     PrimaryButtonText = "Принять"
                 };
                 await contentDialog.ShowAsync();
             }
             if (weight == true)
             {
-                var contentDialog = new ContentDialog()
+                ContentDialog contentDialog = new ContentDialog()
                 {
                     Title = "Результатат вычисления массы",
-                    Content = ((3.14 * radius * radius * height)*density)/3,
+                    Content = ((3.14 * radius * radius * height) * density) / 3,
                     PrimaryButtonText = "Принять"
                 };
                 await contentDialog.ShowAsync();
