@@ -3,16 +3,8 @@
   <Class Name="HelloWorld.MainPage">
     <Position X="0.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAYAAAIAAAAAAAABAQAgAGAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACAAAAAQAAAIAAAAAAAABAQAgAGAAAAAAAAA=</HashCode>
       <FileName>MainPage.xaml.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="HelloWorld.MyCustomDialog">
-    <Position X="3" Y="0.5" Width="2.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>MyCustomDialog.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>

@@ -6,6 +6,8 @@ namespace HelloWorld
 {
     public sealed partial class MyCustomDialog : ContentDialog
     {
+        bool isCapacity, isWeight;
+
         public MyCustomDialog()
         {
             InitializeComponent();
@@ -17,6 +19,12 @@ namespace HelloWorld
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+        }
+
+        private void CapacityBox_Checked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            isCapacity = (bool)CapacityBox.IsChecked;
+            isWeight = (bool)WeightBox.IsChecked;
         }
     }
 }

@@ -10,6 +10,7 @@
 
     <Grid>
         <Button x:Name="button" Content="Ввод" FontSize="18" VerticalAlignment="Top" Height="45" Width="180" BorderBrush="Black" BorderThickness="2,2,1,2" Click="button_Click"/>
+        
         <Button x:Name="button1" Content="Вычисления" Margin="180,0,0,0" FontSize="18" VerticalAlignment="Top" Width="180" Height="45" BorderBrush="Black" BorderThickness="1,2,1,2" Click="button1_Click"/>
         <Button x:Name="button2" Content="Выход" FontSize="18" Margin="360,0,0,0" VerticalAlignment="Top" Width="180" Height="45" BorderBrush="Black" BorderThickness="1,2,2,2" Click="button2_Click"/>
     </Grid>

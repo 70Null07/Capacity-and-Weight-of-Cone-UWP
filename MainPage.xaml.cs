@@ -18,15 +18,15 @@ using Windows.UI.Xaml.Controls;
 // – ввода радиуса, высоты и плотности конуса;
 // – выбора режима с помощью флажков: подсчет объема и/или массы конуса. 
 // При выборе команды Вычисления должно открываться окно сообщений с результатами.
-// При выборе команды Выход приложение должно завершить 
-// работу. 
+// При выборе команды Выход приложение должно завершить работу.
 
 namespace HelloWorld
 {
     public sealed partial class MainPage : Page
     {
         private double radius, height, density;
-        private bool capacity, weight;
+        internal bool capacity, weight;
+
         public MainPage()
         {
             InitializeComponent();
@@ -55,7 +55,7 @@ namespace HelloWorld
                     Content = ex.Message,
                     PrimaryButtonText = "Повторить ввод",
                 };
-                contentDialog.ShowAsync();
+                await contentDialog.ShowAsync();
             }
 
             if (dialog.WeightBox.IsChecked == false && dialog.CapacityBox.IsChecked == false)
